@@ -1,8 +1,8 @@
 function mathOperationsOnIntegers(num1, num2){
     let additionResult = +num1 + (+num2);
-    let substructionResult = +num1 - (+num1);
+    let substructionResult = +num1 - (+num2);
     let multiplicationResult = +num1 * (+num2);
-    let divisionResult = +num1/(+num2);
+    let divisionResult = +num1 / (+num2);
 
     alert(`${num1} + ${num2} = ${additionResult}`);
     alert(`${num1} - ${num2} = ${substructionResult}`);
