@@ -4,6 +4,6 @@ function numberFactorial(number){
     }
     return number;
 }
-let numberRecieved = prompt("Please, enter any integer from 1 to 50 and we will count its factorial", 0);
+let numberRecieved = prompt("Please, enter any integer from 1 to 50 and we will calculate its factorial", 0);
 
 alert(`Here we go, factorial of a ${numberRecieved} is ${numberFactorial(numberRecieved)}`);
