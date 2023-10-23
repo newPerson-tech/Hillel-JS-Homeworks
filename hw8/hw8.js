@@ -1,31 +1,24 @@
-/*Напишіть функцию main (a, b, cb) наступним чином:
-Якщо a та b не передані, вони дорівнюють за замовчюванням 2 та 3  відповідно.
-Якщо аргумент cb переданий і він є функцією, то він виконується після виклику функції sum(a, b), і як вхідне значення приймає результат роботи функції sum(a, b).
-Функція main повинна повертати результат функції аргументу cb, якщо він є, або результат функції sum(a, b)
-В якості колбеку можно  використовувати функцію, яка виводить результат результат роботи функції sum(a, b) в алерт
+/*Write a function main which recieves parameters a, b, cb. If arguments a & b not passed, consider them as 2 & 3 respectively. 
+If argument cb passed as a function the it shoud be called after calling sum() functiob which returns sum of a & b.
 */
 
-function main(a, b, cb){
-   if (a === undefined){
-    a = 2;
-   } else if(b === undefined){
-    b = 3;
-   } else if(cb !== undefined){
-    cb = sum;
-   }
+function main(a = 2, b = 3, cb){
+    if(typeof cb === 'function'){
+        return cb(sum(a, b));
+    } else{
+        return sum(a, b);
+    }
 }
 
-function sum(a, b, myCallBack){
-    let sum = a+ b;
-    return sum;
-    myCallBack(sum);
+function sum(a, b){
+    return a + b;
 }
 
-function showMessage(a, b, sum){
-    alert(`The summ of ${a} and ${b} is ${sum}`);
+function cb(message){
+    alert(message);
 }
 
-console.log(sum(showMessage));
+main(4, 5, cb);
 
 
 
