@@ -5,16 +5,11 @@
 function getTownOfResidence(arr){
    const currentTown = {};
       arr.forEach(function(key, i) {
-         currentTown[arr[i]];
-         currentTown['name'] = "Reading";
-         currentTown['area'] = "Berkshire";
-         currentTown['population'] = 174200;
-         currentTown['main street'] = "London Road";
-         currentTown['mayors name'] = "Matt Rodda";
+         currentTown[arr[i]] = prompt(`Enter: ${arr[i]}`);
       });
       return currentTown;
 }
 
 const arrayGiven = ['name', 'area', 'population', 'main street', 'mayor\'s name'];
 
-console.log(getTownOfResidence(arrayGiven));
+getTownOfResidence(arrayGiven);
