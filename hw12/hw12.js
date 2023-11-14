@@ -14,5 +14,5 @@ function checkPalindrome(str){
     }
 }
 
-let inputStr = prompt('Please, enter any string here to check');
+let inputStr = prompt('Please, enter any string here to check', ' ');
 checkPalindrome(inputStr);
