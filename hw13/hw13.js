@@ -4,9 +4,21 @@
 додайте створений список до кінця <body>
  */
 
-const tasksToGo = [];
-while(true){
-    const task = prompt("Please, set the tesk", " ");
-    if(task === null) break;
-    tasksToGo.push(task);
+
+let tasksInput = prompt("Please, write down a list of tasks to do, separated by commas", " ");
+const tasksArray = tasksInput.split(",");
+
+
+function createToDoList(arr){
+    for (let i = 0; i < arr.length; i++ ) {
+        const tasksList = document.createElement('ul');
+        let task = document.createElement('li');
+        task.innerHTML = arr[i];
+        tasksList.appendChild(task);
+    }
+    return tasksList;
 }
+
+let bodyPage = createToDoList(tasksArray).body;
+
+console.log(bodyPage);
