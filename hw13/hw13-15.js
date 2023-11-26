@@ -4,23 +4,45 @@
 додайте створений список до кінця <body>
  */
 
-const appElement = document.getElementById('to-do-list-app');
+function renderListItem(task){
+    const listElement = document.getElementById('list');
+    const taskElement = document.createElement('li');
+    taskElement.innerHTML = `<span>${task}</span>`;
+    listElement.append(taskElement);
 
-const tasks = [];
-
-while (true){
-    const task = prompt('What are you going to do today?', ' ');
-    if (task === null) break;
-    tasks.push(task);
+    const deleteButton = document.createElement('button');
+    deleteButton.innerHTML = 'x';
+    taskElement.append(deleteButton);
 }
 
-listElement = document.createElememnt('ul');
+function init(){
+    const appElement = document.getElementById('to-do-list-app');
+    const tasks = [];
 
-tasks.forEach(task => {
-    const taskElement = document.createElement('li');
-    taskElement.innerHTML = task;
-    listElement.append(taskElement);
-});
+    while (true){
+        const task = prompt('What are you going to do today?', ' ');
+        if (task === null) break;
+        tasks.push(task);
+    }
+    
+    listElement = document.createElement('ul');
+    listElement.id = 'list';
+    appElement.append(listElement); 
+    
+    tasks.forEach(task => {
+        renderListItem(task);
+    });
+    
+    const addButton = document.createElement('button');
+    addButton.innerHTML = '+';
+    appElement.append(addButton);
 
-appElement.append(listElement);
+    addButton.addEventListener('click', () => {
+        const task = prompt('What are you going to do today?', ' ');
+        renderListItem(task);
+    });
+}
+
+
+init();
 
