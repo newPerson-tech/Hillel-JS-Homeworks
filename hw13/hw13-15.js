@@ -58,3 +58,16 @@ function init(){
 
 init();
 
+
+function showPosition(position){
+    let h3 = document.querySelector('h3');
+    h3.innerHTML = `Current location: latitude - ${position.coords.latitude} and longitude ${position.coords.longitude}`;
+}
+
+function getCurrentPosition(){
+    navigator.geolocation.getCurrentPosition(showPosition);
+}
+
+const locationButton = document.querySelector('button');
+
+locationButton.addEventListener('click', getCurrentPosition);
